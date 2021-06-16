@@ -84,11 +84,16 @@ Da analisi effettuate, vengono riportati alcuni grafici della tensione e della c
      
  ![Figura 8 tensione e corrente lungo la linea con segnale gaussiano, carico induttivo (a metà della linea di trasmissione)](readme_image/fig_12.png) Figura 8 tensione e corrente lungo la linea con segnale gaussiano, carico induttivo (a metà della linea di trasmissione)
  
- Per selezionare la tipologia di segnale e/o la tipologia di carico, abbiamo pensato di utilizzare la command windows.
+
+
+Per selezionare la tipologia di segnale e/o la tipologia di carico, abbiamo pensato di utilizzare la command windows.
 
 ![Figura 9 command windows](readme_image/cmd.png) Figura 9 command windows
 
 Come mostrato in figura 9, l’utente può selezionare agevolmente le condizioni desiderate seguendo le indicazioni fornite.
+
+
+
 
 
 ### L'intero lavoro è stato svolto da:
