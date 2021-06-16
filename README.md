@@ -12,7 +12,7 @@ L’algoritmo di Yee è basato sull’approssimazione alle differenze finite del
 La discretizzazione spaziale prevede il posizionamento dei campi, elettrici e magnetici (E ed H), attraverso una griglia che permette facilmente il calcolo delle derivate tramite differenze finite. In particolare i campi elettrici vengono posti lungo gli spigoli delle celle aventi dimensione (∆x,∆y,∆z), mentre i campi magnetici vengono posizionati al centro della superficie sottesa alla singola cella risultando così sfasati di mezza cella.
 Allo stesso modo per quanto riguarda la discretizzazione temporale, lo sfalsamento    dei campi deve essere mantenuto anche nel tempo per cui E ed H devono essere valutati a tempi diversi di una quantità pari a mezzo passo di campionamento ∆t.   
 
-![Figura 1 discretizzazione spaziale metodo FDTD](readme_image/fig_1.png)  
+![Figura 1 discretizzazione spaziale metodo FDTD](readme_image/fig_1.png)  Figura 1 discretizzazione spaziale metodo FDTD
 
 
 
@@ -26,7 +26,7 @@ e l’altra condizione impone che l’incremento temporale ∆t adottato si mant
 La tecnica FDTD può essere applicata ad un’ampia varietà di problemi complessi: radiazione di antenne in ambienti complessi, modellizzazione di circuiti a microonde, problemi di compatibilità elettromagnetica ecc. 
 Il nostro progetto consiste nell’applicare la tecnica FDTD alle equazioni dei Telegrafisti:
 
- ![Figura 2 equazioni dei telegrafisti](readme_image/fig_4.png) 
+ ![Figura 2 equazioni dei telegrafisti](readme_image/fig_4.png) Figura 2 equazioni dei telegrafisti
  
 per studiare la propagazione della tensione e della corrente lungo una linea di trasmissione nel dominio del tempo.
 
@@ -63,22 +63,25 @@ Abbiamo valutato il comportamento della tensione e della corrente in base al seg
 
 Da alcune analisi effettuate, vengono riportati alcuni grafici della tensione e della corrente in tre diversi punti della linea (inizio, metà e sul carico) al variare del tempo.
 
- [Figura 3 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo adattato (all'inizio della linea di trasmissione)](readme_image/fig_7.png)
+ ![Figura 3 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo adattato (all'inizio della linea di trasmissione)](readme_image/fig_7.png) Figura 3 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo adattato (all'inizio della linea di trasmissione)
+ 
  Il segnale sinusoidale risulta molto fitto a causa dell’elevata frequenza (1,4x10^9Hz)
  
- [Figura 4 tensione e corrente lungo la linea con segnale gaussiano, carico resistivo adattato (a metà della linea di trasmissione)](readme_image/fig_8.png)
+ ![Figura 4 tensione e corrente lungo la linea con segnale gaussiano, carico resistivo adattato (a metà della linea di trasmissione)](readme_image/fig_8.png) Figura 4 tensione e corrente lungo la linea con segnale gaussiano, carico resistivo adattato (a metà della linea di trasmissione)
+ 
  Il segnale gaussiano, come evidente da tale grafico, risulta non completamente corretto (presenta infatti picchi che non dovrebbe avere). Dopo diversi test ed analisi effettuate sul problema in questione, abbiamo pensato che questo comportamento potrebbe essere dovuto ad errori numerici e/o di approssimazione di Matlab.
   
- [Figura 5 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo non adattato (a metà della linea di trasmissione)](readme_image/fig_9.png)
+ ![Figura 5 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo non adattato (a metà della linea di trasmissione)](readme_image/fig_9.png) Figura 5 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo non adattato (a metà della linea di trasmissione)
+ 
  Il segnale alla fine della linea torna indietro e viene fatto “rimbalzare” a causa della presenza di un carico disadattato. Notiamo appunto delle riflessioni.
 
 
    
- [Figura 6 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo non adattato (alla fine della linea di trasmissione)](readme_image/fig_10.png)
+ ![Figura 6 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo non adattato (alla fine della linea di trasmissione)](readme_image/fig_10.png) Figura 6 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo non adattato (alla fine della linea di trasmissione)
     
- [Figura 7 tensione e corrente lungo la linea con segnale gaussiano, carico capacitivo (all’inizio della linea di trasmissione)](readme_image/fig_11.png)
+ ![Figura 7 tensione e corrente lungo la linea con segnale gaussiano, carico capacitivo (all’inizio della linea di trasmissione)](readme_image/fig_11.png) Figura 7 tensione e corrente lungo la linea con segnale gaussiano, carico capacitivo (all’inizio della linea di trasmissione)
      
- [Figura 8 tensione e corrente lungo la linea con segnale gaussiano, carico induttivo (a metà della linea di trasmissione)](readme_image/fig_12.png)
+ ![Figura 8 tensione e corrente lungo la linea con segnale gaussiano, carico induttivo (a metà della linea di trasmissione)](readme_image/fig_12.png) Figura 8 tensione e corrente lungo la linea con segnale gaussiano, carico induttivo (a metà della linea di trasmissione)
 
 
 
