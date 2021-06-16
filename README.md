@@ -12,7 +12,7 @@ L’algoritmo di Yee è basato sull’approssimazione alle differenze finite del
 La discretizzazione spaziale prevede il posizionamento dei campi, elettrici e magnetici (E ed H), attraverso una griglia che permette facilmente il calcolo delle derivate tramite differenze finite. In particolare i campi elettrici vengono posti lungo gli spigoli delle celle aventi dimensione (∆x,∆y,∆z), mentre i campi magnetici vengono posizionati al centro della superficie sottesa alla singola cella risultando così sfasati di mezza cella.
 Allo stesso modo per quanto riguarda la discretizzazione temporale, lo sfalsamento    dei campi deve essere mantenuto anche nel tempo per cui E ed H devono essere valutati a tempi diversi di una quantità pari a mezzo passo di campionamento ∆t.   
 
-  [Figura 1 discretizzazione spaziale metodo FDTD](readme_image/fig_1.png)  
+![Figura 1 discretizzazione spaziale metodo FDTD](readme_image/fig_1.png)  
 
 
 
@@ -79,3 +79,11 @@ Da alcune analisi effettuate, vengono riportati alcuni grafici della tensione e 
  [Figura 7 tensione e corrente lungo la linea con segnale gaussiano, carico capacitivo (all’inizio della linea di trasmissione)](readme_image/fig_11.png)
      
  [Figura 8 tensione e corrente lungo la linea con segnale gaussiano, carico induttivo (a metà della linea di trasmissione)](readme_image/fig_12.png)
+
+
+
+### L'intero lavoro è stato svolto da:
+- Lucia Silla
+- Michele Zurlo
+    
+© All rights are reserved to their respective owners. 
