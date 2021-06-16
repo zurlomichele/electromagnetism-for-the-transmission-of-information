@@ -11,6 +11,7 @@ Il metodo FDTD (finite-difference time-domain) è una tecnica proposta da Kane Y
 L’algoritmo di Yee è basato sull’approssimazione alle differenze finite delle derivate nello spazio e nel tempo. 
 La discretizzazione spaziale prevede il posizionamento dei campi, elettrici e magnetici (E ed H), attraverso una griglia che permette facilmente il calcolo delle derivate tramite differenze finite. In particolare i campi elettrici vengono posti lungo gli spigoli delle celle aventi dimensione (∆x,∆y,∆z), mentre i campi magnetici vengono posizionati al centro della superficie sottesa alla singola cella risultando così sfasati di mezza cella.
 Allo stesso modo per quanto riguarda la discretizzazione temporale, lo sfalsamento    dei campi deve essere mantenuto anche nel tempo per cui E ed H devono essere valutati a tempi diversi di una quantità pari a mezzo passo di campionamento ∆t.   
+![figura 1](readme_image/fig_1.png)
 
 L’implementazione dell’algoritmo per quanto facile e concettualmente semplice presenta dei problemi di dispersione numerica, stabilità ed errori. Questi problemi sono superabili rispettando opportune condizioni:
 〖∆x〗_max,〖∆y〗_max,〖∆z〗_max  ≤ 1/20 λ_min    λ_min= vc/f_(max √(μ_rmax ε_rmax )) 
