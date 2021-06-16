@@ -61,7 +61,7 @@ I(i) = I(i) + coeffL * (V(i+1) - V(i));
 e inserite all’interno di due cicli for separati per rendere il processo più chiaro e semplice, dove la tensione della cella i-esima è in funzione della corrente della cella medesima e della corrente situata nella cella precedente. Allo stesso modo il calcolo della corrente.
 Abbiamo valutato il comportamento della tensione e della corrente in base al segnale e ai quattro tipi di carico richiesti applicando ad ogni carico le opportune condizioni al contorno.
 
-Da alcune analisi effettuate, vengono riportati alcuni grafici della tensione e della corrente in tre diversi punti della linea (inizio, metà e sul carico) al variare del tempo.
+Da alcune analisi effettuate, vengono riportati grafici della tensione e della corrente in tre diversi punti della linea (inizio, metà e sul carico) al variare del tempo.
 
  ![Figura 3 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo adattato (all'inizio della linea di trasmissione)](readme_image/fig_7.png) Figura 3 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo adattato (all'inizio della linea di trasmissione)
  
