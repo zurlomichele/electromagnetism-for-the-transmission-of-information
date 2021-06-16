@@ -2,7 +2,7 @@
 
 
 
-<h6> INTRO </h6>
+## INTRO
 Obiettivo del nostro progetto intra - corso è stato la realizzazione di un programma MATLAB che simuli la propagazione della tensione e della corrente lungo una linea di trasmissione nel dominio del tempo applicando la tecnica FDTD. 
 
 Metodo FDTD
