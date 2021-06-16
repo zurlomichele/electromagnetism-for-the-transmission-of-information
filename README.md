@@ -3,23 +3,21 @@
 
 
 ## INTRO
-Obiettivo del nostro progetto intra - corso è stato la realizzazione di un programma MATLAB che simuli la propagazione della tensione e della corrente lungo una linea di trasmissione nel dominio del tempo applicando la tecnica FDTD. 
+Obiettivo del nostro progetto intra - corso è stato la realizzazione di un programma MATLAB che, applicando la tecnica FDTD, simuli la propagazione della tensione e della corrente lungo una linea di trasmissione nel dominio del tempo.
 
 ## Metodo FDTD
 
-Il metodo FDTD (finite-difference time-domain) è una tecnica proposta da Kane Yee nel 1966 per la risoluzione numerica delle equazioni di Maxwell per i campi elettromagnetici. 
-L’algoritmo di Yee è basato sull’approssimazione alle differenze finite delle derivate nello spazio e nel tempo. 
-La discretizzazione spaziale prevede il posizionamento dei campi, elettrici e magnetici (E ed H), attraverso una griglia che permette facilmente il calcolo delle derivate tramite differenze finite. In particolare i campi elettrici vengono posti lungo gli spigoli delle celle aventi dimensione (∆x,∆y,∆z), mentre i campi magnetici vengono posizionati al centro della superficie sottesa alla singola cella risultando così sfasati di mezza cella.
-Allo stesso modo per quanto riguarda la discretizzazione temporale, lo sfalsamento    dei campi deve essere mantenuto anche nel tempo per cui E ed H devono essere valutati a tempi diversi di una quantità pari a mezzo passo di campionamento ∆t.   
+Il metodo FDTD (finite-difference time-domain) è una tecnica proposta da Kane Yee nel 1966 per la risoluzione numerica delle equazioni di Maxwell per i campi elettromagnetici. L’algoritmo di Yee è basato sull’approssimazione alle differenze finite delle derivate nello spazio e nel tempo. La discretizzazione spaziale prevede il posizionamento dei campi, elettrici e magnetici (E ed H), attraverso una griglia che permette facilmente il calcolo delle derivate tramite differenze finite. In particolare i campi elettrici vengono posti lungo gli spigoli delle celle aventi dimensione (Δ𝑥,Δ𝑦,Δ𝑧), mentre i campi magnetici vengono posizionati al centro della superficie sottesa alla singola cella risultando così sfasati di mezza cella. Allo stesso modo per quanto riguarda la discretizzazione temporale, lo sfalsamento dei campi deve essere mantenuto anche nel tempo per cui E ed H devono essere valutati a tempi diversi di una quantità pari a mezzo passo di campionamento Δ𝑡.
 
 ![Figura 1 discretizzazione spaziale metodo FDTD](readme_image/fig_1.png)  Figura 1 discretizzazione spaziale metodo FDTD
 
 
 
-L’implementazione dell’algoritmo per quanto facile e concettualmente semplice presenta dei problemi di dispersione numerica, stabilità ed errori. Questi problemi sono superabili rispettando opportune condizioni:
+L’implementazione dell’algoritmo per quanto facile e concettualmente semplice presenta dei problemi di dispersione numerica, stabilità ed errori. Questi problemi sono superabili rispettando opportune condizioni. La prima:
+
  ![figura 2](readme_image/fig_2.png)
  
-e l’altra condizione impone che l’incremento temporale ∆t adottato si mantenga entro un limite definito in funzione degli incrementi spaziali ∆x,∆y,∆z della griglia:
+e l’altra condizione impone che l’incremento temporale Δ𝑡 adottato si mantenga entro un limite definito in funzione degli incrementi spaziali Δ𝑥,Δ𝑦,Δ𝑧 della griglia:
  
  ![figura 3](readme_image/fig_3.png)
 
@@ -45,10 +43,10 @@ I comportamenti della tensione e della corrente sono stati analizzati in tre div
 ## Implementazione e grafici
 Entriamo ora nello specifico con una descrizione accurata dei metodi adottati e delle scelte implementative effettuate.
 
-L’implementazione dell’algoritmo è stata fatta suddividendo il cavo in celle infinitesime di dimensione dz =(c/sqrt(epsilonr))/1.4*10^9, dove ogni cella conteneva un voltaggio e una corrente e discretizzando il tempo di analisi in funzione dei passi dz: 
-dt = dz/c; 
-Vettoretempo = (0:dt:tmax);
-(con “c” velocità della luce e “tmax” tempo di animazione).
+L’implementazione dell’algoritmo è stata fatta suddividendo il cavo in celle infinitesime di dimensione dz =(c/sqrt(eps_R))/1.4*10^9, dove ogni cella conteneva un voltaggio e una corrente e discretizzando il tempo di analisi in funzione dei passi dz: 
+dt = dz/c;
+TA = (0:dt:max_time);
+(con “c” velocità della luce, e “max_time” durata dell’animazione).
 
 Le equazioni utilizzate per il seguente problema sono state :
 
@@ -56,12 +54,15 @@ Le equazioni utilizzate per il seguente problema sono state :
  ![figura 6](readme_image/fig_6.png)
                    
 che sono state implementate nel calcolatore nel seguente modo:
-V(i) = V(i) + coeffC * (I(i) - I(i-1));
-I(i) = I(i) + coeffL * (V(i+1) - V(i));
-e inserite all’interno di due cicli for separati per rendere il processo più chiaro e semplice, dove la tensione della cella i-esima è in funzione della corrente della cella medesima e della corrente situata nella cella precedente. Allo stesso modo il calcolo della corrente.
+
+V(i) = V(i) + coefficient_L * (I(i) - I(i-1)); 
+I(i) = I(i) + coefficient_C * (V(i+1) - V(i));
+
+e inserite all’interno di due cicli for separati per rendere il processo più chiaro e semplice, dove la tensione della cella i-esima è in funzione della corrente della cella medesima e della corrente situata nella cella precedente.
+Allo stesso modo il calcolo della corrente.
 Abbiamo valutato il comportamento della tensione e della corrente in base al segnale e ai quattro tipi di carico richiesti applicando ad ogni carico le opportune condizioni al contorno.
 
-Da alcune analisi effettuate, vengono riportati grafici della tensione e della corrente in tre diversi punti della linea (inizio, metà e sul carico) al variare del tempo.
+Da analisi effettuate, vengono riportati alcuni grafici della tensione e della corrente in tre diversi punti della linea (inizio, metà e sul carico) al variare del tempo.
 
  ![Figura 3 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo adattato (all'inizio della linea di trasmissione)](readme_image/fig_7.png) Figura 3 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo adattato (all'inizio della linea di trasmissione)
  
@@ -73,7 +74,7 @@ Da alcune analisi effettuate, vengono riportati grafici della tensione e della c
   
  ![Figura 5 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo non adattato (a metà della linea di trasmissione)](readme_image/fig_9.png) Figura 5 tensione e corrente lungo la linea con segnale sinusoidale, carico resistivo non adattato (a metà della linea di trasmissione)
  
- Il segnale alla fine della linea torna indietro e viene fatto “rimbalzare” a causa della presenza di un carico disadattato. Notiamo appunto delle riflessioni.
+ Il segnale alla fine della linea torna indietro e “rimbalza” a causa della presenza di un carico disadattato. Notiamo appunto delle riflessioni.
 
 
    
@@ -82,6 +83,8 @@ Da alcune analisi effettuate, vengono riportati grafici della tensione e della c
  ![Figura 7 tensione e corrente lungo la linea con segnale gaussiano, carico capacitivo (all’inizio della linea di trasmissione)](readme_image/fig_11.png) Figura 7 tensione e corrente lungo la linea con segnale gaussiano, carico capacitivo (all’inizio della linea di trasmissione)
      
  ![Figura 8 tensione e corrente lungo la linea con segnale gaussiano, carico induttivo (a metà della linea di trasmissione)](readme_image/fig_12.png) Figura 8 tensione e corrente lungo la linea con segnale gaussiano, carico induttivo (a metà della linea di trasmissione)
+ 
+ Per selezionare la tipologia di segnale e/o la tipologia di carico, abbiamo pensato di utilizzare la command windows.
 
 
 
